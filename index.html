@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+  <form id="formulario">
+    <select id="contenido"></select>
+  </form>
+
+  <script>
+    var ApiData;
+    var select = document.getElementById('contenido');
+    var form = document.getElementById('formulario');
+
+    getData();
+
+    select.addEventListener('change', function() {
+      marca = ApiData.find(marca => marca.Id ==select.value);
+      alert('La marca tiene ' + marca.IdCiudades.length + ' Ciudades asociadas');
+    });
+
+    function getData() {
+      fetch('https://api.garantto.com/api/v1/marca-cbx/')
+      .then(res => res.json())
+      .then(data => {
+        ApiData = data;
+        var options = data.map(({Id, Marca}) => ({Id, Marca}));
+        for (let i = 0; i < options.length; i++) {
+          var opt = options[i];
+          var el = document.createElement("option");
+          el.value = opt.Id;
+          el.textContent = opt.Marca;
+          select.appendChild(el);
+        }
+      });
+    }
+
+  </script>
+
+</body>
+</html>

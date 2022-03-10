@@ -1,0 +1,16 @@
+{
+  "name": "app-apping",
+  "version": "1.0.0",
+  "description": "Aplicación para prueba técnica de Apping",
+  "main": "index.js",
+  "scripts": {
+    "print": "node index.js"
+  },
+  "author": "Juan Felipe Pérez Amú",
+  "license": "MIT",
+  "dependencies": {
+    "install": "^0.13.0",
+    "node-fetch": "^2.6.7",
+    "npm": "^8.5.3"
+  }
+}
