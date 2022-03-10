@@ -8,7 +8,7 @@
 
 ## Ejecución
 
-- node run print
+- npm run print
 
 ## Autor
 
